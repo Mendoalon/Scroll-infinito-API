@@ -1,0 +1,75 @@
+<div class="container-lg mt-4">
+  <ng-container *ngIf="isLoading">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <app-loading></app-loading>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="card$ | async as card">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4 col-12 d-flex align-items-center justify-content-center">
+          <img [src]="card.card_images[0].image_url" class="img-fluid rounded" alt="Card Image" />
+        </div>
+        <div class="col-md-8 col-12 d-flex flex-column align-items-center">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{ card.name }}</h5>
+            <p class="card-text">{{ card.desc }}</p>
+            <p class="card-text">
+              <small class="text-muted">Type: {{ card.type }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Frame Type: {{ card.frameType }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Race: {{ card.race }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Archetype: {{ card.archetype }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Set Name: {{ card.card_sets[0].set_name }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Set Rarity: {{ card.card_sets[0].set_rarity }}</small>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Set Price: {{ card.card_sets[0].set_price }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+
+<!-- <div class="container-lg mt-4">
+  <ng-container *ngIf="isLoading">
+    <div>
+      <app-loading></app-loading>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="card$ | async as card">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img [src]="card.card_images[0].image_url" class="img-fluid rounded-start" alt="..." />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{card.name}}</h5>
+            <p class="card-text">{{card.desc}}</p>
+            <p class="card-text">
+              <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+ -->
+

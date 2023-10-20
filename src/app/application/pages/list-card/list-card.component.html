@@ -1,0 +1,27 @@
+<div (scrolled)="onScroll()"
+     class="container"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="50"
+     >
+  <div class="row mt-3">
+    <div class="col-12">
+      <input [formControl]="searchTerm"
+             class="form-control"
+             type="text"
+             placeholder="Buscar una carta"/>
+    </div>
+  </div>
+
+  <div class="row mt-3 justify-content-center">
+    <div>
+      <app-loading *ngIf="isLoading && (firstLoad || !cards.length)" />
+    </div>
+
+    <ng-container *ngIf="!isLoading || cards.length">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of cards">
+        <app-card [card]="card" />
+      </div>
+    </ng-container>
+  </div>
+</div>

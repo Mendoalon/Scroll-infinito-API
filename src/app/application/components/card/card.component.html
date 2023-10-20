@@ -1,0 +1,5 @@
+<div (click)="goToCard()"
+     class="ygo-card"
+     *ngIf="card">
+  <img [src]="card.card_images[0].image_url" [alt]="card.name" />
+</div>
